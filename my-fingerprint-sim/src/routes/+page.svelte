@@ -615,21 +615,30 @@
 	<title>Fingerprint Demo — Your Device, Explained</title>
 </svelte:head>
 
-<main class="min-h-screen flex flex-col items-center justify-start p-6 relative overflow-hidden">
+<main
+	class="crt min-h-screen flex flex-col items-center justify-start p-6 relative overflow-hidden"
+>
 	<!-- Background Elements -->
-	<div class="absolute inset-0 pointer-events-none">
+	<div class="absolute inset-0 pointer-events-none overflow-hidden">
+		<!-- Vibrant Technicolor Blobs -->
 		<div
-			class="absolute top-0 left-0 w-full h-96 bg-linear-to-b from-surveillance-navy to-transparent opacity-60"
+			class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-surveillance-accent/30 rounded-full blur-[120px] mix-blend-multiply animate-pulse"
 		></div>
 		<div
-			class="absolute bottom-0 right-0 w-96 h-96 bg-surveillance-accent/5 rounded-full blur-3xl"
+			class="absolute top-[10%] right-[-10%] w-[50%] h-[60%] bg-surveillance-cyan/30 rounded-full blur-[120px] mix-blend-multiply"
+		></div>
+		<div
+			class="absolute bottom-[-10%] left-[20%] w-[60%] h-[50%] bg-surveillance-yellow/30 rounded-full blur-[120px] mix-blend-multiply"
+		></div>
+		<div
+			class="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] bg-surveillance-green/30 rounded-full blur-[100px] mix-blend-multiply"
 		></div>
 	</div>
 
 	<!-- Persistent Transparency Button -->
 	<!-- Persistent Transparency Button -->
 	<button
-		class="fixed top-4 right-4 z-50 px-3 py-1.5 rounded-full bg-surveillance-navy/80 border border-surveillance-slate/30 text-xs text-surveillance-slate hover:text-surveillance-cloud hover:border-surveillance-accent/50 transition-all backdrop-blur-sm flex items-center gap-2 cursor-pointer"
+		class="transparency-btn fixed top-4 right-4 px-3 py-1.5 rounded-full bg-white/80 border border-surveillance-slate/20 text-xs text-surveillance-slate hover:text-surveillance-cloud hover:border-surveillance-accent/70 transition-all backdrop-blur-sm flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
 		onclick={() => {
 			transparencyMode = 'info';
 			showTransparency = true;
@@ -642,16 +651,21 @@
 		<!-- Hero / Primer -->
 		<section class="text-center space-y-6 pt-10">
 			<div
-				class="inline-block px-3 py-1 rounded-full bg-surveillance-slate/10 border border-surveillance-slate/20 text-xs font-medium tracking-wider text-surveillance-slate uppercase mb-3"
+				class="inline-block px-3 py-1 rounded-full bg-white/70 border border-surveillance-slate/20 text-xs font-bold tracking-wider text-surveillance-slate uppercase mb-3 shadow-sm"
 			>
 				Privacy Awareness Demo
 			</div>
 
-			<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-surveillance-cloud">
-				Your device is more revealing than you think.
+			<h1 class="text-4xl md:text-6xl font-black tracking-tight text-surveillance-cloud">
+				Your device is <span
+					class="text-surveillance-accent underline decoration-surveillance-cyan decoration-4 underline-offset-4"
+					>more revealing</span
+				> than you think.
 			</h1>
 
-			<p class="text-lg md:text-xl text-surveillance-slate max-w-2xl mx-auto leading-relaxed">
+			<p
+				class="text-lg md:text-xl text-surveillance-slate max-w-2xl mx-auto leading-relaxed font-medium"
+			>
 				Not your name. Your setup. Your habits. The quiet technical clues your device broadcasts on
 				every site you visit. This page lets you see what others usually keep invisible.
 			</p>
@@ -663,13 +677,10 @@
 							transparencyMode = 'consent';
 							showTransparency = true;
 						}}
-						class="group relative inline-flex items-center justify-center px-8 py-3 font-medium text-surveillance-cloud transition-all duration-200 bg-surveillance-navy border border-surveillance-slate/30 rounded-lg hover:bg-surveillance-slate/10 hover:border-surveillance-accent/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-surveillance-accent focus:ring-offset-surveillance-charcoal cursor-pointer"
+						class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-surveillance-accent border-2 border-surveillance-accent rounded-lg hover:bg-white hover:text-surveillance-accent hover:border-surveillance-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-surveillance-accent focus:ring-offset-white cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5"
 					>
 						<span class="mr-2">Show me what my device reveals</span>
 						<span class="group-hover:translate-x-1 transition-transform">→</span>
-						<div
-							class="absolute inset-0 rounded-lg ring-1 ring-white/10 group-hover:ring-white/20"
-						></div>
 					</button>
 
 					<p class="text-sm text-surveillance-slate/70 max-w-md">
@@ -682,7 +693,7 @@
 							transparencyMode = 'info';
 							showTransparency = true;
 						}}
-						class="mt-2 px-4 py-2 text-xs font-medium text-surveillance-slate hover:text-surveillance-cloud border border-surveillance-slate/20 rounded-full hover:bg-surveillance-slate/10 transition-all flex items-center gap-2 cursor-pointer"
+						class="mt-2 px-4 py-2 text-xs font-bold text-surveillance-slate hover:text-surveillance-accent border border-surveillance-slate/20 rounded-full hover:bg-white hover:shadow-md transition-all flex items-center gap-2 cursor-pointer"
 					>
 						<span>🛡️</span> Read Transparency Report & Data Usage
 					</button>
@@ -697,7 +708,9 @@
 		</section>
 
 		<!-- Small primer strip -->
-		<section class="max-w-3xl mx-auto text-center text-sm text-surveillance-slate/80 space-y-2">
+		<section
+			class="max-w-3xl mx-auto text-center text-sm text-surveillance-slate/80 space-y-2 font-medium"
+		>
 			<p>
 				Every device has a technical signature. Most people never see it. This page shows you the
 				same kind of recognition technique that websites use silently; but here, it’s visible,
@@ -719,7 +732,7 @@
 					<p class="text-xs text-surveillance-slate/70">
 						Reading "harmless" technical traits only – no name, email, or logins.
 					</p>
-					<p class="text-[10px] text-surveillance-slate/60">
+					<p class="text-[10px] text-surveillance-slate/80">
 						Browser features, display details, timing behavior, and connection hints.
 					</p>
 				</div>
@@ -729,14 +742,14 @@
 		{#if fingerprint}
 			<!-- DEMO: Recognition Banner -->
 			<section
-				class="motion-pop bg-surveillance-navy/60 border border-surveillance-slate/30 rounded-2xl p-8 relative overflow-hidden scan-overlay"
+				class="motion-pop bg-white/80 border-2 border-surveillance-accent/20 rounded-2xl p-8 relative overflow-hidden scan-overlay shadow-2xl backdrop-blur-md"
 			>
 				<div class="relative z-10 space-y-4">
 					<div class="flex items-center gap-3 mb-1">
 						<div
-							class="w-2 h-2 rounded-full {recognition?.seenBefore
-								? 'bg-surveillance-accent'
-								: 'bg-surveillance-slate'} animate-pulse"
+							class="w-3 h-3 rounded-full {recognition?.seenBefore
+								? 'bg-surveillance-accent shadow-[0_0_10px_var(--color-surveillance-accent)]'
+								: 'bg-surveillance-cyan shadow-[0_0_10px_var(--color-surveillance-cyan)]'} animate-pulse"
 						></div>
 						<span class="text-xs font-mono uppercase tracking-widest text-surveillance-slate">
 							{recognition?.seenBefore ? 'Device Recognized' : 'New Device Signature'}
@@ -765,7 +778,7 @@
 						class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-surveillance-slate/90"
 					>
 						<div>
-							<div class="text-xs uppercase tracking-widest text-surveillance-slate/60">
+							<div class="text-xs uppercase tracking-widest text-surveillance-slate/80">
 								Approximate network location
 							</div>
 							<div class="mt-1 text-surveillance-cloud">
@@ -782,13 +795,13 @@
 									Network / ISP: {clientGeo.org}
 								</div>
 							{/if}
-							<div class="mt-1 text-[11px] text-surveillance-slate/60">
+							<div class="mt-1 text-[11px] text-surveillance-slate/80">
 								Based on your IP address for this visit.
 							</div>
 						</div>
 
 						<div>
-							<div class="text-xs uppercase tracking-widest text-surveillance-slate/60">
+							<div class="text-xs uppercase tracking-widest text-surveillance-slate/80">
 								IP address (this request)
 							</div>
 							<div class="mt-1 text-surveillance-cloud">
@@ -802,7 +815,7 @@
 									{/if}
 								</div>
 							{/if}
-							<div class="mt-1 text-[11px] text-surveillance-slate/60">
+							<div class="mt-1 text-[11px] text-surveillance-slate/80">
 								IP can change with VPNs and Wi-Fi. Your device fingerprint often does not.
 							</div>
 						</div>
@@ -897,7 +910,7 @@
 						</span>
 						<span class="stat-label">Signature stability</span>
 					</div>
-					<div class="stat-value glow text-surveillance-accent">
+					<div class="stat-value text-surveillance-accent">
 						{liveOverview.stabilityPercent ?? 0}%
 					</div>
 					<div class="stat-commentary">
@@ -923,20 +936,20 @@
 					</div>
 					<div class="space-y-3">
 						<div>
-							<div class="text-xs text-surveillance-slate/60 uppercase tracking-wider">
+							<div class="text-xs text-surveillance-slate/80 uppercase tracking-wider">
 								GPU Model
 							</div>
 							<div class="text-sm text-surveillance-cloud font-mono break-words">{gpuModel}</div>
 						</div>
 						<div>
-							<div class="text-xs text-surveillance-slate/60 uppercase tracking-wider">
+							<div class="text-xs text-surveillance-slate/80 uppercase tracking-wider">
 								Battery Status
 							</div>
 							<div class="text-sm text-surveillance-cloud">
 								{#if battery.supported}
 									{battery.level}% • {battery.charging ? '⚡ Charging' : 'Not Charging'}
 								{:else}
-									<span class="text-surveillance-slate/50">Restricted / Desktop</span>
+									<span class="text-surveillance-slate/70">Restricted / Desktop</span>
 								{/if}
 							</div>
 						</div>
@@ -981,14 +994,14 @@
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 							<div class="space-y-6">
 								<div>
-									<div class="text-xs uppercase tracking-widest text-surveillance-slate/60 mb-1">
+									<div class="text-xs uppercase tracking-widest text-surveillance-slate/80 mb-1">
 										Assigned Persona
 									</div>
 									<div class="text-3xl font-bold text-surveillance-cloud">{profile.persona}</div>
 								</div>
 
 								<div>
-									<div class="text-xs uppercase tracking-widest text-surveillance-slate/60 mb-1">
+									<div class="text-xs uppercase tracking-widest text-surveillance-slate/80 mb-1">
 										Likely Income Tier
 									</div>
 									<div class="text-xl text-surveillance-cloud">{profile.incomeTier}</div>
@@ -998,7 +1011,7 @@
 								</div>
 
 								<div>
-									<div class="text-xs uppercase tracking-widest text-surveillance-slate/60 mb-1">
+									<div class="text-xs uppercase tracking-widest text-surveillance-slate/80 mb-1">
 										Tech Literacy Score
 									</div>
 									<div class="text-xl text-surveillance-cloud">{profile.techLiteracy}</div>
@@ -1020,7 +1033,7 @@
 								</div>
 
 								<div>
-									<div class="text-xs uppercase tracking-widest text-surveillance-slate/60 mb-1">
+									<div class="text-xs uppercase tracking-widest text-surveillance-slate/80 mb-1">
 										Device Class
 									</div>
 									<div class="text-xl text-surveillance-cloud">{profile.deviceClass}</div>
@@ -1090,17 +1103,17 @@
 										<div class="h-3 bg-surveillance-slate/10 rounded w-full"></div>
 										<div class="h-3 bg-surveillance-slate/10 rounded w-5/6"></div>
 									</div>
-									<div class="mt-4 text-xs text-surveillance-slate/50">
+									<div class="mt-4 text-xs text-surveillance-slate/70">
 										AI is analyzing your income, device, and location...
 									</div>
 								{:else}
-									<div class="text-surveillance-slate/50 text-sm italic">
+									<div class="text-surveillance-slate/70 text-sm italic">
 										Waiting for fingerprint...
 									</div>
 								{/if}
 
 								<div
-									class="mt-4 pt-4 border-t border-surveillance-slate/10 text-xs text-surveillance-slate/60"
+									class="mt-4 pt-4 border-t border-surveillance-slate/10 text-xs text-surveillance-slate/80"
 								>
 									<p>
 										Advertisers pay more to reach specific personas. We used AI to generate this ad
@@ -1115,7 +1128,7 @@
 
 							<!-- Dynamic Pricing Simulator -->
 							<div
-								class="md:col-span-2 bg-surveillance-navy/50 rounded-xl p-6 border border-surveillance-slate/20"
+								class="md:col-span-2 bg-surveillance-navy/70 rounded-xl p-6 border border-surveillance-slate/20"
 							>
 								<h3
 									class="text-sm font-bold text-surveillance-slate uppercase tracking-widest mb-4"
@@ -1146,7 +1159,7 @@
 											{#if generatedPricing}
 												{#if generatedPricing.standardPrice !== generatedPricing.userPrice}
 													<span
-														class="text-xs text-surveillance-slate line-through decoration-surveillance-accent/50 mb-0.5"
+														class="text-xs text-surveillance-slate line-through decoration-surveillance-accent/70 mb-0.5"
 													>
 														${generatedPricing.standardPrice.toLocaleString()}
 													</span>
@@ -1156,7 +1169,7 @@
 												<span class="animate-pulse">...</span>
 											{/if}
 										</div>
-										<div class="text-[10px] text-surveillance-slate/60 mt-1">
+										<div class="text-[10px] text-surveillance-slate/80 mt-1">
 											{#if generatedPricing}
 												{#if generatedPricing.markupPercentage > 0}
 													+{generatedPricing.markupPercentage}% markup ({generatedPricing.reason})
@@ -1211,10 +1224,10 @@
 						{#if canvasDataUrl}
 							<img src={canvasDataUrl} alt="Canvas Fingerprint" class="max-w-full h-auto" />
 						{:else}
-							<div class="text-black/50 text-xs">Rendering...</div>
+							<div class="text-black/70 text-xs">Rendering...</div>
 						{/if}
 					</div>
-					<div class="mt-4 text-[10px] font-mono text-surveillance-slate/50 break-all">
+					<div class="mt-4 text-[10px] font-mono text-surveillance-slate/70 break-all">
 						Hash: {fingerprint.thumbmark.substring(0, 32)}...
 					</div>
 				</div>
@@ -1234,10 +1247,10 @@
 								{font}
 							</span>
 						{:else}
-							<span class="text-xs text-surveillance-slate/50">Scanning fonts...</span>
+							<span class="text-xs text-surveillance-slate/70">Scanning fonts...</span>
 						{/each}
 					</div>
-					<div class="mt-4 text-xs text-surveillance-slate/60">
+					<div class="mt-4 text-xs text-surveillance-slate/80">
 						Designers and developers often have unique font lists that act like a barcode.
 					</div>
 				</div>
@@ -1258,7 +1271,7 @@
 								{voice}
 							</span>
 						{:else}
-							<span class="text-xs text-surveillance-slate/50">Scanning voices...</span>
+							<span class="text-xs text-surveillance-slate/70">Scanning voices...</span>
 						{/each}
 					</div>
 				</div>
@@ -1270,7 +1283,7 @@
 					</h3>
 					<div class="space-y-4">
 						<div>
-							<div class="text-xs text-surveillance-slate/60 uppercase tracking-wider mb-1">
+							<div class="text-xs text-surveillance-slate/80 uppercase tracking-wider mb-1">
 								Network Quality
 							</div>
 							<div class="text-sm text-surveillance-cloud">
@@ -1283,7 +1296,7 @@
 							</div>
 						</div>
 						<div>
-							<div class="text-xs text-surveillance-slate/60 uppercase tracking-wider mb-1">
+							<div class="text-xs text-surveillance-slate/80 uppercase tracking-wider mb-1">
 								Media Codecs
 							</div>
 							<div class="flex flex-wrap gap-2">
@@ -1300,7 +1313,7 @@
 							</div>
 						</div>
 						<div>
-							<div class="text-xs text-surveillance-slate/60 uppercase tracking-wider mb-1">
+							<div class="text-xs text-surveillance-slate/80 uppercase tracking-wider mb-1">
 								Permission State
 							</div>
 							<div class="flex flex-wrap gap-2">
@@ -1329,7 +1342,7 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					<!-- Card 1 -->
 					<div
-						class="p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-colors"
+						class="p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-colors"
 					>
 						<div class="text-2xl mb-3">👁️</div>
 						<h3 class="text-lg font-semibold text-surveillance-cloud mb-2">
@@ -1337,13 +1350,13 @@
 						</h3>
 						<p class="text-surveillance-slate text-sm leading-relaxed">
 							Tracking decides what prices you get, what news you see, what jobs appear, and what
-							opportunities never reach you. Not your search history — your identity funnel.
+							opportunities never reach you. Not your search history, digital identity.
 						</p>
 					</div>
 
 					<!-- Card 2 -->
 					<div
-						class="p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-colors"
+						class="p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-colors"
 					>
 						<div class="text-2xl mb-3">🏷️</div>
 						<h3 class="text-lg font-semibold text-surveillance-cloud mb-2">
@@ -1357,7 +1370,7 @@
 
 					<!-- Card 3 -->
 					<div
-						class="p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-colors"
+						class="p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-colors"
 					>
 						<div class="text-2xl mb-3">⚖️</div>
 						<h3 class="text-lg font-semibold text-surveillance-cloud mb-2">
@@ -1369,23 +1382,9 @@
 						</p>
 					</div>
 
-					<!-- Card 4 -->
-					<div
-						class="p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-colors md:col-span-2 lg:col-span-1"
-					>
-						<div class="text-2xl mb-3">🧠</div>
-						<h3 class="text-lg font-semibold text-surveillance-cloud mb-2">
-							It affects your autonomy
-						</h3>
-						<p class="text-surveillance-slate text-sm leading-relaxed">
-							It doesn’t matter if your history is boring. What matters is who your digital profile
-							says you are — or aren’t. Privacy isn’t about hiding. It’s about not being misread.
-						</p>
-					</div>
-
 					<!-- Card 5 -->
 					<div
-						class="p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-colors md:col-span-2 lg:col-span-2"
+						class="p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-colors md:col-span-2 lg:col-span-4"
 					>
 						<div class="text-2xl mb-3">🕸️</div>
 						<h3 class="text-lg font-semibold text-surveillance-cloud mb-2">
@@ -1393,8 +1392,8 @@
 						</h3>
 						<p class="text-surveillance-slate text-sm leading-relaxed">
 							You reveal data without meaning to. Companies analyze it without telling you. The
-							imbalance isn’t your fault — but it affects you. The less you know, the more power
-							they have.
+							imbalance isn’t your fault, but it affects you. The less you know, the more power they
+							have.
 						</p>
 					</div>
 				</div>
@@ -1465,8 +1464,8 @@
 
 				<div class="text-center max-w-2xl mx-auto space-y-3">
 					<p class="text-lg text-surveillance-cloud font-medium isolated leading-relaxed">
-						Combined, these traits create a signature that can be as distinctive as a face — and
-						often survives private mode, VPNs, and cookie clearing.
+						Combined, these traits create a signature that can be as distinctive as a face. It often
+						survives private mode, VPNs, and cookie clearing.
 					</p>
 					<p class="text-sm text-surveillance-slate leading-relaxed">
 						This demo uses only safe, browser-visible data. No name, no login, no microphone or
@@ -1476,7 +1475,7 @@
 			</section>
 
 			<!-- Challenge Section -->
-			<section class="bg-surveillance-navy/40 rounded-2xl p-8 border border-surveillance-slate/20">
+			<section class="bg-surveillance-navy/50 rounded-2xl p-8 border border-surveillance-slate/20">
 				<h2 class="text-2xl font-bold text-center mb-2 text-surveillance-cloud">
 					Try to change your fingerprint
 				</h2>
@@ -1566,7 +1565,7 @@
 				<p class="text-center text-surveillance-slate max-w-2xl mx-auto leading-relaxed">
 					Many privacy tools promise anonymity, but few deliver it. Use this interactive simulator
 					to test how browsers, VPNs, and blockers actually affect your fingerprintability score.
-					See what works—and what doesn't.
+					See what works, and what doesn't.
 				</p>
 
 				<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
@@ -1682,7 +1681,7 @@
 							class="bg-surveillance-slate/5 rounded-lg p-4 border border-surveillance-slate/10 min-h-[100px] flex items-center justify-center"
 						>
 							<p
-								class="text-center text-surveillance-cloud text-sm leading-relaxed animate-in fade-in duration-300 key={privacyCommentary}"
+								class="stable-text text-center text-surveillance-cloud text-sm leading-relaxed animate-in fade-in duration-300 key={privacyCommentary}"
 							>
 								{privacyCommentary}
 							</p>
@@ -1703,7 +1702,7 @@
 				<a
 					href="https://www.torproject.org/"
 					target="_blank"
-					class="group p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-all hover:-translate-y-1"
+					class="group p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-all hover:-translate-y-1"
 				>
 					<div class="text-2xl mb-3">🧅</div>
 					<h3
@@ -1720,7 +1719,7 @@
 				<a
 					href="https://ublockorigin.com/"
 					target="_blank"
-					class="group p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-all hover:-translate-y-1"
+					class="group p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-all hover:-translate-y-1"
 				>
 					<div class="text-2xl mb-3">🛡️</div>
 					<h3
@@ -1737,7 +1736,7 @@
 				<a
 					href="https://coveryourtracks.eff.org/"
 					target="_blank"
-					class="group p-6 rounded-xl bg-surveillance-navy/40 border border-surveillance-slate/20 hover:border-surveillance-accent/40 transition-all hover:-translate-y-1"
+					class="group p-6 rounded-xl bg-surveillance-navy/50 border border-surveillance-slate/20 hover:border-surveillance-accent/50 transition-all hover:-translate-y-1"
 				>
 					<div class="text-2xl mb-3">📚</div>
 					<h3
@@ -1767,7 +1766,7 @@
 							>FOR THE CURIOUS</span
 						>
 						<span
-							class="transform group-open/main:rotate-180 transition-transform duration-300 text-surveillance-slate/50"
+							class="transform group-open/main:rotate-180 transition-transform duration-300 text-surveillance-slate/70"
 							>▼</span
 						>
 					</summary>
@@ -1776,7 +1775,7 @@
 						<!-- Top Stats Bar -->
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div
-								class="bg-black/40 border border-surveillance-slate/20 rounded-lg p-4 flex flex-col justify-between"
+								class="bg-black/50 border border-surveillance-slate/20 rounded-lg p-4 flex flex-col justify-between"
 							>
 								<div class="text-xs text-surveillance-slate uppercase tracking-wider mb-1">
 									Current Thumbmark
@@ -1787,7 +1786,7 @@
 							</div>
 
 							<div class="grid grid-cols-2 gap-4">
-								<div class="bg-black/40 border border-surveillance-slate/20 rounded-lg p-4">
+								<div class="bg-black/50 border border-surveillance-slate/20 rounded-lg p-4">
 									<div class="text-xs text-surveillance-slate uppercase tracking-wider mb-1">
 										Stability
 									</div>
@@ -1799,7 +1798,7 @@
 										{liveOverview.stabilityPercent ?? 0}%
 									</div>
 								</div>
-								<div class="bg-black/40 border border-surveillance-slate/20 rounded-lg p-4">
+								<div class="bg-black/50 border border-surveillance-slate/20 rounded-lg p-4">
 									<div class="text-xs text-surveillance-slate uppercase tracking-wider mb-1">
 										Visit Count
 									</div>
@@ -1812,10 +1811,10 @@
 
 						{#if comparedPrevious}
 							<div
-								class="bg-black/40 border border-surveillance-slate/20 rounded-lg p-3 flex items-center justify-between gap-4 text-xs font-mono"
+								class="bg-black/50 border border-surveillance-slate/20 rounded-lg p-3 flex items-center justify-between gap-4 text-xs font-mono"
 							>
 								<span class="text-surveillance-slate">Previous:</span>
-								<span class="text-surveillance-slate/60 break-all"
+								<span class="text-surveillance-slate/80 break-all"
 									>{comparedPrevious.thumbmark}</span
 								>
 							</div>
@@ -1834,7 +1833,7 @@
 										<span class="text-lg">🔒</span>
 										<span class="font-medium text-surveillance-cloud">Local Fingerprint Data</span>
 									</div>
-									<span class="text-xs text-surveillance-slate/60 group-open/panel:hidden"
+									<span class="text-xs text-surveillance-slate/80 group-open/panel:hidden"
 										>Click to expand</span
 									>
 								</summary>
@@ -1859,7 +1858,7 @@
 										<span class="text-lg">📡</span>
 										<span class="font-medium text-surveillance-cloud">Server Communication</span>
 									</div>
-									<span class="text-xs text-surveillance-slate/60 group-open/panel:hidden"
+									<span class="text-xs text-surveillance-slate/80 group-open/panel:hidden"
 										>Click to expand</span
 									>
 								</summary>
@@ -1876,7 +1875,7 @@
 													2
 												)}</pre>
 										{:else}
-											<div class="text-sm text-surveillance-slate/50 italic">
+											<div class="text-sm text-surveillance-slate/70 italic">
 												No payload captured yet.
 											</div>
 										{/if}
@@ -1903,7 +1902,7 @@
 
 			<!-- Final reflection / punchline -->
 			<section class="pt-10 text-center space-y-3 max-w-3xl mx-auto">
-				<p class="text-sm uppercase tracking-[0.2em] text-surveillance-slate/60">One last thing</p>
+				<p class="text-sm uppercase tracking-[0.2em] text-surveillance-slate/80">One last thing</p>
 				<p class="text-xl md:text-2xl text-surveillance-cloud font-semibold">
 					This entire system was built as a high-school project using public browser APIs.
 				</p>
@@ -1913,12 +1912,12 @@
 					history, location feeds, and thousands of third-party data sources.
 				</p>
 				<p class="text-sm text-surveillance-slate/70">
-					The point isn’t to scare you. It’s to make the invisible visible — so you can decide what
+					The point isn’t to scare you. It’s to make the invisible visible so you can decide what
 					you’re comfortable with.
 				</p>
 			</section>
 
-			<footer class="text-center text-surveillance-slate/40 text-xs md:text-sm py-10">
+			<footer class="text-center text-surveillance-slate/50 text-xs md:text-sm py-10">
 				<p>Safe by design • Raw fingerprint stays local • Anonymous hash + visit counts only</p>
 				<button
 					class="mt-3 text-[11px] underline hover:text-surveillance-accent transition-colors"
@@ -1929,17 +1928,17 @@
 			</footer>
 		{/if}
 	</section>
-
-	<TransparencyModal
-		isOpen={showTransparency}
-		mode={transparencyMode}
-		onclose={() => (showTransparency = false)}
-		onconfirm={() => {
-			showTransparency = false;
-			startFingerprint();
-		}}
-	/>
 </main>
+
+<TransparencyModal
+	isOpen={showTransparency}
+	mode={transparencyMode}
+	onclose={() => (showTransparency = false)}
+	onconfirm={() => {
+		showTransparency = false;
+		startFingerprint();
+	}}
+/>
 
 <style>
 	@reference './layout.css';
@@ -2005,7 +2004,7 @@
 
 	/* Component Classes */
 	.stat-card {
-		@apply bg-surveillance-navy/50 border border-surveillance-slate/20 rounded-xl p-6 flex flex-col gap-2 hover:-translate-y-1 transition-transform duration-300;
+		@apply bg-white border-2 border-surveillance-slate/10 rounded-xl p-6 flex flex-col gap-2 hover:-translate-y-1 transition-transform duration-300 hover:border-surveillance-cyan hover:shadow-[5px_5px_0px_rgba(0,255,255,0.3)];
 	}
 
 	.stat-header {
@@ -2013,15 +2012,15 @@
 	}
 
 	.stat-label {
-		@apply text-xs font-medium uppercase tracking-wider text-surveillance-slate;
+		@apply text-xs font-bold uppercase tracking-wider text-surveillance-slate;
 	}
 
 	.stat-value {
-		@apply text-3xl font-bold text-surveillance-cloud;
+		@apply text-3xl font-black text-surveillance-cloud;
 	}
 
 	.stat-commentary {
-		@apply text-sm text-surveillance-slate/80 mt-2 leading-relaxed;
+		@apply text-sm text-surveillance-slate mt-2 leading-relaxed font-medium;
 	}
 
 	.challenge-btn {
@@ -2037,7 +2036,7 @@
 	}
 
 	.card {
-		@apply bg-black/30 border border-surveillance-slate/20 rounded-xl p-4;
+		@apply bg-white/70 border border-surveillance-slate/20 rounded-xl p-4;
 	}
 
 	.card.full {
@@ -2045,7 +2044,7 @@
 	}
 
 	pre {
-		background: #020617;
+		background: #0f172a;
 		color: #e0f2fe;
 		border-radius: 0.75rem;
 		padding: 1rem;
@@ -2078,5 +2077,257 @@
 	}
 	details > summary::-webkit-details-marker {
 		display: none;
+	}
+
+	/* CRT Effects */
+	@keyframes flicker {
+		0% {
+			opacity: 0.027;
+		}
+		5% {
+			opacity: 0.034;
+		}
+		10% {
+			opacity: 0.023;
+		}
+		15% {
+			opacity: 0.09;
+		}
+		20% {
+			opacity: 0.018;
+		}
+		25% {
+			opacity: 0.083;
+		}
+		30% {
+			opacity: 0.065;
+		}
+		35% {
+			opacity: 0.067;
+		}
+		40% {
+			opacity: 0.026;
+		}
+		45% {
+			opacity: 0.084;
+		}
+		50% {
+			opacity: 0.096;
+		}
+		55% {
+			opacity: 0.008;
+		}
+		60% {
+			opacity: 0.02;
+		}
+		65% {
+			opacity: 0.071;
+		}
+		70% {
+			opacity: 0.053;
+		}
+		75% {
+			opacity: 0.037;
+		}
+		80% {
+			opacity: 0.071;
+		}
+		85% {
+			opacity: 0.07;
+		}
+		90% {
+			opacity: 0.07;
+		}
+		95% {
+			opacity: 0.036;
+		}
+		100% {
+			opacity: 0.024;
+		}
+	}
+
+	@keyframes textShadow {
+		0% {
+			text-shadow:
+				0.1px 0 1px rgba(0, 30, 255, 0.5),
+				-0.1px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		5% {
+			text-shadow:
+				0.2px 0 1px rgba(0, 30, 255, 0.5),
+				-0.2px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		10% {
+			text-shadow:
+				0.05px 0 1px rgba(0, 30, 255, 0.5),
+				-0.05px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		15% {
+			text-shadow:
+				0.3px 0 1px rgba(0, 30, 255, 0.5),
+				-0.3px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		20% {
+			text-shadow:
+				0.1px 0 1px rgba(0, 30, 255, 0.5),
+				-0.1px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		25% {
+			text-shadow:
+				0.4px 0 1px rgba(0, 30, 255, 0.5),
+				-0.4px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		30% {
+			text-shadow:
+				0.1px 0 1px rgba(0, 30, 255, 0.5),
+				-0.1px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		35% {
+			text-shadow:
+				0.3px 0 1px rgba(0, 30, 255, 0.5),
+				-0.3px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		40% {
+			text-shadow:
+				0.2px 0 1px rgba(0, 30, 255, 0.5),
+				-0.2px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		45% {
+			text-shadow:
+				0.15px 0 1px rgba(0, 30, 255, 0.5),
+				-0.15px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		50% {
+			text-shadow:
+				0.05px 0 1px rgba(0, 30, 255, 0.5),
+				-0.05px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		55% {
+			text-shadow:
+				0.25px 0 1px rgba(0, 30, 255, 0.5),
+				-0.25px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		60% {
+			text-shadow:
+				0.2px 0 1px rgba(0, 30, 255, 0.5),
+				-0.2px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		65% {
+			text-shadow:
+				0.3px 0 1px rgba(0, 30, 255, 0.5),
+				-0.3px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		70% {
+			text-shadow:
+				0.1px 0 1px rgba(0, 30, 255, 0.5),
+				-0.1px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		75% {
+			text-shadow:
+				0.2px 0 1px rgba(0, 30, 255, 0.5),
+				-0.2px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		80% {
+			text-shadow:
+				0.05px 0 1px rgba(0, 30, 255, 0.5),
+				-0.05px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		85% {
+			text-shadow:
+				0.1px 0 1px rgba(0, 30, 255, 0.5),
+				-0.1px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		90% {
+			text-shadow:
+				0.35px 0 1px rgba(0, 30, 255, 0.5),
+				-0.35px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		95% {
+			text-shadow:
+				0.2px 0 1px rgba(0, 30, 255, 0.5),
+				-0.2px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+		100% {
+			text-shadow:
+				0.25px 0 1px rgba(0, 30, 255, 0.5),
+				-0.25px 0 1px rgba(255, 0, 80, 0.3),
+				0 0 3px;
+		}
+	}
+
+	:global(.crt::before) {
+		content: ' ';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background:
+			linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+			linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+		z-index: 50;
+		background-size:
+			100% 2px,
+			3px 100%;
+		pointer-events: none;
+	}
+
+	:global(.crt::after) {
+		content: ' ';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(18, 16, 16, 0.05);
+		opacity: 0;
+		z-index: 50;
+		pointer-events: none;
+		animation: flicker 0.15s infinite;
+	}
+
+	:global(.crt) {
+		animation: textShadow 1.6s infinite;
+	}
+
+	:global(.crt *) {
+		text-shadow: inherit;
+	}
+
+	/* Transparency Button Override */
+	:global(.transparency-btn) {
+		z-index: 100 !important;
+		text-shadow: none !important;
+	}
+
+	/* Global Button Stabilization */
+	:global(.crt button),
+	:global(.crt a),
+	:global(.crt details),
+	:global(.crt summary),
+	:global(.crt .stable-text) {
+		text-shadow: none !important;
 	}
 </style>

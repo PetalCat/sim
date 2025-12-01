@@ -39,7 +39,7 @@
 		<!-- Backdrop -->
 		<button
 			type="button"
-			class="absolute inset-0 bg-surveillance-charcoal/90 backdrop-blur-sm transition-opacity"
+			class="absolute inset-0 bg-surveillance-charcoal/90 transition-opacity"
 			on:click={close}
 			transition:fade={{ duration: 200 }}
 			aria-label="Close modal"

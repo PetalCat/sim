@@ -3,11 +3,14 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--color-surveillance-charcoal: #0f172a;
-	--color-surveillance-navy: #0b1021;
-	--color-surveillance-cloud: #f9fafb;
-	--color-surveillance-slate: #94a3b8;
-	--color-surveillance-accent: #60a5fa;
+	--color-surveillance-charcoal: #ffffff;
+	--color-surveillance-navy: #f0f9ff;
+	--color-surveillance-cloud: #0f172a;
+	--color-surveillance-slate: #475569;
+	--color-surveillance-accent: #ff00ff;
+	--color-surveillance-cyan: #00ffff;
+	--color-surveillance-green: #00ff00;
+	--color-surveillance-yellow: #ffff00;
 	--font-sans: 'Inter', system-ui, sans-serif;
 }
 
