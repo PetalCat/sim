@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-surveillance-charcoal: #0f172a;
+	--color-surveillance-navy: #0b1021;
+	--color-surveillance-cloud: #f9fafb;
+	--color-surveillance-slate: #94a3b8;
+	--color-surveillance-accent: #60a5fa;
+	--font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+	body {
+		background-color: var(--color-surveillance-charcoal);
+		color: var(--color-surveillance-cloud);
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+	}
+}
