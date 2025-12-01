@@ -5,6 +5,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
+	build: {
+		rollupOptions: {
+			external: ['@libsql/client']
+		}
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
