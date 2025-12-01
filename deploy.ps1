@@ -32,6 +32,12 @@ if (-not (Test-Path .env)) {
     exit 1
 }
 
+# Create data directory for database
+if (-not (Test-Path data)) {
+    Write-Host "Creating data directory..." -ForegroundColor Cyan
+    New-Item -ItemType Directory -Force -Path data | Out-Null
+}
+
 # Build the Docker image
 Write-Host "Building Docker image..." -ForegroundColor Cyan
 docker-compose build

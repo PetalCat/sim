@@ -6,8 +6,9 @@ services:
     environment:
       - PORT=4000
       - NODE_ENV=production
+      - DATABASE_URL=file:data/local.db
     env_file:
       - .env
     volumes:
-      - ./local.db:/app/local.db
+      - ./data:/app/data
     restart: always
