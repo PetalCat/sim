@@ -8,4 +8,6 @@ services:
       - NODE_ENV=production
     env_file:
       - .env
+    volumes:
+      - ./local.db:/app/local.db
     restart: always

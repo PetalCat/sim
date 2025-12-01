@@ -12,6 +12,7 @@ WORKDIR /app
 COPY --from=builder /app/build build/
 COPY --from=builder /app/node_modules node_modules/
 COPY package.json .
+COPY drizzle drizzle/
 EXPOSE 4000
 ENV NODE_ENV=production
 ENV PORT=4000
